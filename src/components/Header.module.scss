@@ -1,0 +1,36 @@
+@use "../assets/styles/mixins" as mixin;
+
+.header{
+  position: relative;
+  height:58px;
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: var(--box-shadow-nav);
+  color: var(--primary);
+  img {
+    width: 130px;
+  }
+
+}
+
+.headerList{
+  @include mixin.xs{
+    display: none;
+  }
+}
+
+.headerXs{
+  display: none;
+  cursor: pointer;
+
+  @include mixin.xs{
+    display: block;
+  }
+
+  &:hover{
+    opacity: 0.8;
+    transform: rotate(90deg);
+  }
+
+  transition: opacity 0.2s, transform 0.2s;
+}
