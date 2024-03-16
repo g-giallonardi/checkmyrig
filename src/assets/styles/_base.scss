@@ -1,10 +1,13 @@
 body{
-  margin: 0;
+  margin:0;
+  padding:0;
+  height:100%;
   font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-color);
-  background-color: var(--gray-2);
+  background-color: var(--gray-1);
+  min-height: 100vh;
 }
 
 h1,h2,h3,h4{
@@ -27,4 +30,17 @@ img{
 
 input,::placeholder{
   font-family: var(--font-family);
+}
+
+.appContainer{
+  min-height: 100vh;
+}
+
+.active{
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.error{
+  color : red;
 }

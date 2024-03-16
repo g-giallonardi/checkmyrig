@@ -1,0 +1,30 @@
+.adminContent{
+  height: 100%;
+}
+.adminPanel{
+  flex:  0 0 250px;
+  border-right: solid 1px var(--gray-2);
+  background-color: var(--gray-1);
+  min-height: 100%;
+  ul{
+    border-left: solid 1px var(--gray-2);
+    margin-left: 20px;
+  }
+  li{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    &:hover{
+      background-color: var(--secondary);
+    }
+  }
+  a{
+    color: var(--gray-3);
+    text-decoration: none;
+    transition: 0.2s color;
+    &:hover{
+      color: var(--primary);
+    }
+  }
+}
+

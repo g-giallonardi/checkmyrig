@@ -1,26 +1,45 @@
+.container{
+  background-color: var(--gray-1);
+}
+
 .btn{
   padding: 5px 15px;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.2s opacity;
+  transition: 0.2s opacity, 0.2s color;
   &:hover{
     opacity: 0.8;
+    color: var(--primary);
   }
 }
 
+.btn-rounded{
+  border-radius: 90px;
+}
+
 .btn-primary{
-  background-color: var(--primary);
-  color: white;
-  border: 1px solid var(--primary)
+  background-color: var(--gray-2);
+  color: var(--gray-3);
+  border: 1px solid var(--gray-2);
 }
 
 .btn-reverse-primary{
-  background-color: white;
+  background-color: var(--secondary);
   color: var(--primary);
-  border: 2px solid var(--primary)
+  border: 2px solid var(--secondary)
 }
 
 .card{
-  border-radius: 20px;
-  background-color: white;
+  border-radius: 4px;
+  background-color: var(--gray-1);
+}
+
+.underlined{
+  display: inline-block;
+  text-decoration: underline solid var(--gray-3);
+  text-decoration-thickness: 2px;
+}
+
+.underlinedActive{
+  text-decoration: underline solid var(--secondary);
 }

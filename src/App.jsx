@@ -1,13 +1,12 @@
-import Header from "./components/Header.jsx";
-import Content from "./components/Content.jsx";
-import Footer from "./components/Footer.jsx";
-import styles from "./App.module.scss"
+import {Outlet} from "react-router-dom";
+import Header from "./components/Header/Header.jsx";
+
 function App() {
   return (
-      <div className={`d-flex flex-column ${styles.appContainer}`}>
+      <div className={`d-flex flex-column appContainer`}>
           <Header/>
-          <Content />
-          <Footer/>
+          <Outlet/>
+          {/*<Footer/>*/}
       </div>
   )
 }

@@ -1,16 +1,15 @@
-@use "../assets/styles/mixins" as mixin;
+@use "../../assets/styles/mixins" as mixin;
 
 .header{
   position: relative;
-  height:58px;
-  background-color: white;
+  height:100px;
+  background-color: var(--gray-2);
   padding: 10px 20px;
   box-shadow: var(--box-shadow-nav);
-  color: var(--primary);
+  color: var(--gray-3);
   img {
-    width: 130px;
+    width: 100px;
   }
-
 }
 
 .headerList{
