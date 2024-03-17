@@ -1,13 +1,12 @@
-import styles from "../../AdminParts.module.scss";
-import {NavLink, useLoaderData} from "react-router-dom";
 import {useState} from "react";
-// import {deleteRigModel} from "../../../../../../apis/rigs.jsx";
+import {NavLink, useLoaderData} from "react-router-dom";
+import {deletePart} from "../../../../../../apis/parts.jsx";
+import styles from "../../AdminParts.module.scss";
 
 function AdminPartList() {
     const [parts, setParts ] = useState( useLoaderData())
     function handleDelete(id) {
-        // deleteRigModel(id)
-        //TODO: Add delete part function
+        deletePart(id)
         setParts(parts.filter((p) => p._id !== id))
     }
     return (

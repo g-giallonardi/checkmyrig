@@ -124,22 +124,22 @@ export async function updatePart(part){
     }
 }
 
-// export async function deleteRigModel(rigId){
-//     try {
-//         const response = await fetch(`${API_URL}/models/${rigId}`,
-//             {
-//                 method:'DELETE'
-//             }
-//         )
-//
-//         if (response.ok) {
-//             const rigModel = await response.json()
-//             console.info(rigModel)
-//             return rigModel
-//         } else {
-//             return('Oopsy! Something wrong happened...')
-//         }
-//     } catch (e){
-//         return('Oopsy! Something wrong happened...')
-//     }
-// }
+export async function deletePart(partId){
+    try {
+        const response = await fetch(`${API_URL}/${partId}`,
+            {
+                method:'DELETE'
+            }
+        )
+
+        if (response.ok) {
+            const part = await response.json()
+            console.info(part)
+            return part
+        } else {
+            return('Oopsy! Something wrong happened...')
+        }
+    } catch (e){
+        return('Oopsy! Something wrong happened...')
+    }
+}

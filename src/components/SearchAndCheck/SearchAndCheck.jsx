@@ -13,36 +13,35 @@ function SearchAndCheck({ options, setOptions }){
     const [inputValue, setInputvalue] = useState('')
     const [defaultOption, setDefaultOption] = useState('')
     const [defaultOptionFlag, setDefaultOptionFlag] = useState(false)
+    const [existOptions, setExistOptions] = useState([])
 
     if(!defaultOptionFlag){
         if(options?.selected) setDefaultOption(options)
         setDefaultOptionFlag(true)
     }
-    useEffect(
-        () => {
-
-            const newOpt = {_id:0, name: inputValue}
+        useEffect(() => {
+            const newOpt = {_id: 0, name: inputValue}
             const fetchData = async () => {
                 const data = await searchPartType()
+                setExistOptions(data)
+                let finalOptions = data;
 
-                if(defaultOption) setOptions([defaultOption, ...data])
+                if (defaultOption) {
+                    console.log('defaultOption',defaultOption)
+                    finalOptions = [defaultOption, ...data]
+                }
 
-                if(newOpt.name) setOptions([defaultOption,...data,newOpt])
+                if (inputValue) {
+                    console.log('input',inputValue)
+                    console.log('final', finalOptions)
+                    finalOptions = [...finalOptions, newOpt]
+                    console.log('final2', finalOptions)
+                }
+
+                setOptions(finalOptions);
             }
-
-            fetchData()
-            if (inputValue.length > 0){
-
-                if(defaultOption) setOptions([defaultOption,newOpt])
-                else setOptions([...options,newOpt])
-            }
-            else{
-                fetchData()
-                if(defaultOption) setOptions([defaultOption])
-                else setOptions([...options])
-            }
-        }
-    ,[inputValue])
+            fetchData();
+        }, [inputValue])
 
     /**
      * To keep the input value through the component reconstruction.
@@ -51,6 +50,7 @@ function SearchAndCheck({ options, setOptions }){
      * @returns {Promise<void>} - Resolves when the input value has been set.
      */
     async function handleInputValue(value){
+        if(!value) setOptions(existOptions)
         setInputvalue(value)
     }
 
@@ -77,7 +77,7 @@ function SearchAndCheck({ options, setOptions }){
             <div className={`d-flex flex-row`}>
             {
                 Array.isArray(options) && options.length ? options.map(
-                        (o) => <button onClick={(e) => handleSearchOption(e,o._id, o.name)} key={o._id} className={`btn btn-primary mr-5 ${o.selected ? styles.selectedOption : ''}`}>{o.selected ?
+                        (o, i) => <button onClick={(e) => handleSearchOption(e,o._id, o.name)} key={o._id} className={`btn btn-primary mr-5 ${o.selected ? styles.selectedOption : ''}`}>{o.selected ?
                             <i className="fas fa-check-circle"></i> : o._id === 0 ?
                                 <i className="fas fa-plus-circle"></i> :
                                 <i className="far fa-circle"></i>} {o.name} </button>

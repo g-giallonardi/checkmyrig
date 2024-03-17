@@ -58,7 +58,7 @@ function AdminPartForm({ part= null }) {
    function submitForm(values){
         const choosenBrand = brandOpt.filter( o => o.selected)
         const choosenPartType = partTypeOpt.filter( o => o.selected)
-        const updatedPart = {...values, brand:choosenBrand[0], type:choosenPartType[0]}
+        const updatedPart = {...values, brand:choosenBrand[0], type:choosenPartType[0].name}
 
         if (part) {
              updatePart(updatedPart);
