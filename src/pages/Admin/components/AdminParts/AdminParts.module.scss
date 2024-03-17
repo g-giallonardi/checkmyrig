@@ -1,0 +1,37 @@
+.table {
+  border-collapse: collapse;
+  min-width: 100%;
+
+  th {
+    text-align: left;
+  }
+
+  tbody {
+    tr {
+      border-bottom: solid 1px var(--gray-2);
+      &:hover {
+        background-color: var(--gray-2);
+      }
+    }
+  }
+  td,th{
+    padding: 10px;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: var(--text-color);
+  transition: 0.2s color;
+  &:hover{
+    color: var(--primary)
+  }
+}
+
+.actionLink{
+  cursor: pointer;
+  transition: 0.2s color;
+  &:hover{
+    color: var(--primary);
+  }
+}

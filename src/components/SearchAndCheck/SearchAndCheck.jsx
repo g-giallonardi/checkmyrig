@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {searchBrand} from "../../apis/brands.jsx";
-import styles from "./SearchAndSelect.module.scss";
+import styles from "./SearchAndCheck.module.scss";
+import {searchPartType} from "../../apis/parts.jsx";
 
 /**
  * Search and Select method.
@@ -9,7 +9,7 @@ import styles from "./SearchAndSelect.module.scss";
  * to default valueby adding a 'selected' key
  * @param {function} setOptions - A callback function to set the selected options
  */
-function SearchAndSelect({ options, setOptions }){
+function SearchAndCheck({ options, setOptions }){
     const [inputValue, setInputvalue] = useState('')
     const [defaultOption, setDefaultOption] = useState('')
     const [defaultOptionFlag, setDefaultOptionFlag] = useState(false)
@@ -23,21 +23,23 @@ function SearchAndSelect({ options, setOptions }){
 
             const newOpt = {_id:0, name: inputValue}
             const fetchData = async () => {
-                const data = await searchBrand({ name: inputValue})
+                const data = await searchPartType()
 
-                if(defaultOption) setOptions([defaultOption, ...data,newOpt])
-                else setOptions([...data,newOpt])
+                if(defaultOption) setOptions([defaultOption, ...data])
+
+                if(newOpt.name) setOptions([defaultOption,...data,newOpt])
             }
-            if(inputValue.length >= 3) {
-                fetchData()
-            }
-            else if(inputValue.length > 0){
+
+            fetchData()
+            if (inputValue.length > 0){
+
                 if(defaultOption) setOptions([defaultOption,newOpt])
-                else setOptions([newOpt])
+                else setOptions([...options,newOpt])
             }
             else{
+                fetchData()
                 if(defaultOption) setOptions([defaultOption])
-                else setOptions([])
+                else setOptions([...options])
             }
         }
     ,[inputValue])
@@ -71,13 +73,14 @@ function SearchAndSelect({ options, setOptions }){
     }
     return(
         <>
-            <input type="text" value={inputValue} placeholder={`Search or add an item`} className={`mb-20`} onChange={e => handleInputValue(e.target.value)}/>
+            <input type="text" value={inputValue} placeholder={`Select or add an item`} className={`mb-20`} onChange={e => handleInputValue(e.target.value)}/>
             <div className={`d-flex flex-row`}>
             {
                 Array.isArray(options) && options.length ? options.map(
                         (o) => <button onClick={(e) => handleSearchOption(e,o._id, o.name)} key={o._id} className={`btn btn-primary mr-5 ${o.selected ? styles.selectedOption : ''}`}>{o.selected ?
                             <i className="fas fa-check-circle"></i> : o._id === 0 ?
-                                <i className="fas fa-plus-circle"></i> : ''} {o.name} </button>
+                                <i className="fas fa-plus-circle"></i> :
+                                <i className="far fa-circle"></i>} {o.name} </button>
                 ) : ''
             }
             </div>
@@ -85,4 +88,4 @@ function SearchAndSelect({ options, setOptions }){
     )
 }
 
-export default SearchAndSelect;
+export default SearchAndCheck;
