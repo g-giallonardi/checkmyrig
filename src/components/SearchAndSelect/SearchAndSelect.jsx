@@ -1,6 +1,6 @@
-import styles from "./SearchAndSelect.module.scss";
 import {useEffect, useState} from "react";
 import {searchBrand} from "../../apis/brands.jsx";
+import styles from "./SearchAndSelect.module.scss";
 
 /**
  * Search and Select method.
@@ -18,7 +18,6 @@ function SearchAndSelect({ options, setOptions }){
         if(options?.selected) setDefaultOption(options)
         setDefaultOptionFlag(true)
     }
-
     useEffect(
         () => {
 
@@ -26,17 +25,19 @@ function SearchAndSelect({ options, setOptions }){
             const fetchData = async () => {
                 const data = await searchBrand({ name: inputValue})
 
-                setOptions([defaultOption, ...data,newOpt])
+                if(defaultOption) setOptions([defaultOption, ...data,newOpt])
+                else setOptions([...data,newOpt])
             }
             if(inputValue.length >= 3) {
                 fetchData()
             }
             else if(inputValue.length > 0){
-                setOptions([defaultOption,newOpt])
+                if(defaultOption) setOptions([defaultOption,newOpt])
+                else setOptions([newOpt])
             }
             else{
-                //TODO : keep empty if !model
-                setOptions([defaultOption])
+                if(defaultOption) setOptions([defaultOption])
+                else setOptions([])
             }
         }
     ,[inputValue])

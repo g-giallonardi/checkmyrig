@@ -1,11 +1,10 @@
-import {energyOptions, scaleOptions, typeOptions} from "../../../../../../assets/datas/rigsModelConst.js";
+import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {createRigModel as createRigModelApi, updateRigModel as updateRigModelApi} from "../../../../../../apis/rigs.jsx";
-import styles from './AdminRigModelForm.module.scss'
 import SearchAndSelect from "../../../../../../components/SearchAndSelect/SearchAndSelect.jsx";
-import {useState} from "react";
-//TODO: reorder imports
+import {energyOptions, scaleOptions, typeOptions} from "../../../../../../assets/datas/rigsModelConst.js";
+import styles from './AdminRigModelForm.module.scss'
 
 /**
  * Renders a form for creating or updating a rig model.
