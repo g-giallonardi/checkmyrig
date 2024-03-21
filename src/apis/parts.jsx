@@ -29,10 +29,10 @@ export async function fetchParts(){
             const parts = await response.json()
             return parts
         } else {
-            throw new Error('Oopsy! Something wrong happened...')
+            return('Oops! Something wrong happened...')
         }
     } catch (e){
-        throw new Error('Oopsy! Something wrong happened...')
+        return('Oops! Something wrong happened...')
     }
 }
 

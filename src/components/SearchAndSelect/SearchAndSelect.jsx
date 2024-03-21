@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import {searchBrand} from "../../apis/brands.jsx";
 import styles from "./SearchAndSelect.module.scss";
 
 /**
@@ -9,10 +8,11 @@ import styles from "./SearchAndSelect.module.scss";
  * to default valueby adding a 'selected' key
  * @param {function} setOptions - A callback function to set the selected options
  */
-function SearchAndSelect({ options, setOptions }){
+function SearchAndSelect({ options, setOptions, searchItemFn, externalFilter='' }){
     const [inputValue, setInputvalue] = useState('')
     const [defaultOption, setDefaultOption] = useState('')
     const [defaultOptionFlag, setDefaultOptionFlag] = useState(false)
+
 
     if(!defaultOptionFlag){
         if(options?.selected) setDefaultOption(options)
@@ -23,7 +23,10 @@ function SearchAndSelect({ options, setOptions }){
 
             const newOpt = {_id:0, name: inputValue}
             const fetchData = async () => {
-                const data = await searchBrand({ name: inputValue})
+                const formattedFilter = { name: inputValue, filter: externalFilter[0]?.name ? externalFilter[0].name : ''}
+                console.log(formattedFilter)
+                console.log('formattedFilter', formattedFilter)
+                const data = await searchItemFn(formattedFilter)
 
                 if(defaultOption) setOptions([defaultOption, ...data,newOpt])
                 else setOptions([...data,newOpt])

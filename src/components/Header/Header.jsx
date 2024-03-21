@@ -12,25 +12,25 @@ function Header() {
                 </ NavLink>
             </div>
             <ul className={styles.headerList}>
-                <NavLink to={'/admin'} >
+                <NavLink to={'/admin'}>
                     <button className="btn btn-reverse-primary mr-5">
                         <i className="fas fa-plug mr-5"></i>
                         <span>Admin panel</span>
                     </button>
                 </NavLink>
-                <NavLink to={'/'} >
+                <NavLink to={'/'}>
                     <button className="btn btn-primary mr-5">
                         <i className="fas fa-plus-circle mr-5"></i>
                         <span>Log out</span>
                     </button>
                 </NavLink>
 
-                <NavLink to={'/'} >
-                    <button className="btn btn-primary">
-                        <i className="fas fa-sign-in-alt mr-5"></i>
-                        <span>Log in</span>
-                    </button>
-                </NavLink>
+                {/*<NavLink to={'/'}>*/}
+                {/*    <button className="btn btn-primary">*/}
+                {/*        <i className="fas fa-sign-in-alt mr-5"></i>*/}
+                {/*        <span>Log in</span>*/}
+                {/*    </button>*/}
+                {/*</NavLink>*/}
             </ul>
         </header>
     )

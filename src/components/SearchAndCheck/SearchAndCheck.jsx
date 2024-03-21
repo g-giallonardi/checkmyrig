@@ -1,6 +1,5 @@
 import {useEffect, useState} from "react";
 import styles from "./SearchAndCheck.module.scss";
-import {searchPartType} from "../../apis/parts.jsx";
 
 /**
  * Search and Select method.
@@ -9,12 +8,11 @@ import {searchPartType} from "../../apis/parts.jsx";
  * to default valueby adding a 'selected' key
  * @param {function} setOptions - A callback function to set the selected options
  */
-function SearchAndCheck({ options, setOptions }){
+function SearchAndCheck({ options, setOptions , searchItemFn, externalFilter={} }){
     const [inputValue, setInputvalue] = useState('')
     const [defaultOption, setDefaultOption] = useState('')
     const [defaultOptionFlag, setDefaultOptionFlag] = useState(false)
     const [existOptions, setExistOptions] = useState([])
-
     if(!defaultOptionFlag){
         if(options?.selected) setDefaultOption(options)
         setDefaultOptionFlag(true)
@@ -22,7 +20,7 @@ function SearchAndCheck({ options, setOptions }){
         useEffect(() => {
             const newOpt = {_id: 0, name: inputValue}
             const fetchData = async () => {
-                const data = await searchPartType()
+                const data = await searchItemFn()
                 setExistOptions(data)
                 let finalOptions = data;
 

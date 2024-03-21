@@ -1,0 +1,57 @@
+.rigCard{
+  overflow: hidden;
+  &:hover{
+    img{
+      scale: 1.2;
+    }
+    h3{
+      color: var(--primary);
+    }
+  }
+  border-radius: 15px;
+  position: relative;
+  height: 300px;
+  width: 250px;
+
+  img {
+    object-fit: cover;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+    height: 100%;
+    position: absolute;
+    transition: 0.2s scale;
+  }
+}
+.rigCardHeader{
+  position: absolute;
+  bottom : 20px;
+  left : 20px;
+}
+
+.rigCardShadow{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px -100px 30px 0px inset;
+}
+
+.rigCardTag{
+  font-size: 10px;
+  padding: 5px;
+  background-color: var(--gray-2);
+  color: var(--text-color);
+  border-radius: 15px;
+  margin: 5px;
+}
+.likeIcon{
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  transition: 0.2s color;
+
+  &:hover{
+    cursor: pointer;
+    color: var(--primary);
+  }
+}

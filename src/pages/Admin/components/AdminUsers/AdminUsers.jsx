@@ -11,7 +11,6 @@ function AdminUsers(){
              asyncFn()
          }
     ,[])
-    console.log(users)
     return(
         <div className={`d-flex flex-fill flex-column`}>
             <h2 className={`mb-20`}>Users administration</h2>
@@ -25,7 +24,7 @@ function AdminUsers(){
                     </tr>
                     </thead>
                     <tbody>
-                    {
+                    {Array.isArray(users) ?
                         users.map( (u) =>(
                                 <tr key={u._id}>
                                     <td>{u.username}</td>
@@ -38,7 +37,7 @@ function AdminUsers(){
                                 </tr>
                             )
                         )
-                    }
+                    : <tr><td colSpan={3}>Nothing to display</td></tr>}
                     </tbody>
                 </table>
             </div>

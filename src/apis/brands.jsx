@@ -1,5 +1,7 @@
 const API_URL = '/api/brands'
 
+
+
 export async function fetchOneBrand(brandId){
     try {
         const response = await fetch(`${API_URL}/${brandId}`)
@@ -15,28 +17,13 @@ export async function fetchOneBrand(brandId){
 }
 
 export async function searchBrand(filterObj){
-    const filterArr = Array.isArray(filterObj) ? filterObj : [filterObj]
-    console.log(Object.keys(filterObj))
-    const filter = filterArr.map(
-        f => {
-            const keys = Object.keys(f)
-            const fl = {}
-            keys.forEach(key => {
-                fl[key] = {$regex: f[key]}
-                if(typeof f[key] === 'string'){
-                    fl[key] = {...fl[key], $options: 'i'}
-                }
-            })
-            return fl
-        }
-    )
     try {
         const response = await fetch(`${API_URL}/search`, {
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json'
                 },
-                body: JSON.stringify(filter[0])
+                body: JSON.stringify(filterObj)
             }
         )
         if (response.ok) {

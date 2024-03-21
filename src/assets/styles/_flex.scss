@@ -1,5 +1,6 @@
 .d-flex {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .flex-row{
@@ -11,7 +12,7 @@
 }
 
 .flex-fill {
-  flex: 1 1 auto;
+  flex: 0 0 250px;
 }
 
 .justify-content-center {

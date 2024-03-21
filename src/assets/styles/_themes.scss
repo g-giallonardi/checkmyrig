@@ -20,7 +20,7 @@
 .btn-primary{
   background-color: var(--gray-2);
   color: var(--gray-3);
-  border: 1px solid var(--gray-2);
+  border: 1px solid var(--gray-3);
 }
 
 .btn-reverse-primary{
@@ -30,8 +30,8 @@
 }
 
 .card{
-  border-radius: 4px;
-  background-color: var(--gray-1);
+  border-radius: 10px;
+  background-color: var(--gray-2);
 }
 
 .underlined{

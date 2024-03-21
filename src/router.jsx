@@ -7,6 +7,9 @@ import brandFormLoader from "./loaders/brandFormLoader.jsx";
 import rigModelListLoader from "./loaders/rigModelListLoader.jsx";
 import partListLoader from "./loaders/partListLoader.jsx";
 import partFormLoader from "./loaders/partFormLoader.jsx";
+import rigFormLoader from "./loaders/rigFormLoader.jsx";
+import rigListLoader from "./loaders/rigListLoader.jsx";
+
 
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage.jsx"))
@@ -28,7 +31,13 @@ const AdminPartList = lazy(() => import("./pages/Admin/components/AdminParts/com
 const AdminPartCreate = lazy(() => import("./pages/Admin/components/AdminParts/components/AdminPartCreate/AdminPartCreate.jsx"))
 const AdminPartEdit = lazy(() => import("./pages/Admin/components/AdminParts/components/AdminPartEdit/AdminPartEdit.jsx"))
 
+const AdminRigs = lazy(() => import("./pages/Admin/components/AdminRigs/AdminRigs.jsx"))
+const AdminRigList = lazy(() => import("./pages/Admin/components/AdminRigs/components/AdminRigList/AdminRigList.jsx"))
+const AdminRigCreate = lazy(() => import("./pages/Admin/components/AdminRigs/components/AdminRigCreate/AdminRigCreate.jsx"))
+const AdminRigEdit = lazy(() => import("./pages/Admin/components/AdminRigs/components/AdminRigEdit/AdminRigEdit.jsx"))
 
+
+//TODO : reorder routes
 
 export const router = createBrowserRouter([
 	{
@@ -37,12 +46,18 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
+				loader: () => rigListLoader(true),
 				element: <Homepage />
 			},
 			{
 				path: 'admin',
 				element: <Admin />,
 				children:[
+					{
+						index: true,
+						loader: () => rigListLoader(false),
+						element: <AdminRigList />
+					},
 					{
 						path: 'users',
 						element: <AdminUsers/>
@@ -106,6 +121,29 @@ export const router = createBrowserRouter([
 								loader: () => partFormLoader(),
 								element: <AdminPartCreate />
 							},
+						]
+					},
+					{
+						path: 'rigs',
+						element: <AdminRigs/>,
+						children:[
+							{
+								index: true,
+								loader: () => rigListLoader(false),
+								element: <AdminRigList />
+							},
+							{
+								path: 'edit/:rigId',
+								loader: ({params}) => {
+									return rigFormLoader(params.rigId);
+								},
+								element: <AdminRigEdit/>
+							},
+							{
+								path: 'new/',
+								loader: () => rigFormLoader(),
+								element: <AdminRigCreate />
+							}
 						]
 					}
 				]

@@ -8,10 +8,10 @@ export async function fetchUsers(){
             const users = await response.json()
             return users
         } else {
-            throw new Error('Oopsy! Something wrong happened...')
+            return('Oops! Something wrong happened...')
         }
     } catch (e){
-        throw new Error('Oopsy! Something wrong happened...')
+        return('Oops! Something wrong happened...')
     }
 }
 export async function createUser(user){

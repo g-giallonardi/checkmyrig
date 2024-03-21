@@ -20,7 +20,7 @@ function AdminPartList() {
             </tr>
             </thead>
             <tbody>
-            {
+            {Array.isArray(parts) ?
                 parts.map((p) => (
                         <tr key={p._id}>
                             <td>{p.name}</td>
@@ -35,9 +35,10 @@ function AdminPartList() {
                         </tr>
                     )
                 )
+            : <tr><td colSpan={4}>Nothing to display</td></tr>
             }
             <tr>
-                <td colSpan={2}>
+                <td colSpan={4}>
                     <NavLink to={'new'}>
                         <button className={`btn btn-reverse-primary`}><i className="fas fa-plus-circle mr-5"></i> Add
                             new

@@ -6,6 +6,7 @@ import {deleteRigModel} from "../../../../../../apis/rigs.jsx";
 
 function AdminRigModelList() {
     const [models, setModels ] = useState( useLoaderData())
+    console.log(models)
     function handleDelete(id) {
         deleteRigModel(id)
         setModels(models.filter((m) => m._id !== id))
@@ -23,7 +24,7 @@ function AdminRigModelList() {
             </tr>
             </thead>
             <tbody>
-            {
+            {Array.isArray(models) ?
                 models.map((m) => (
                         <tr key={m._id}>
                             <td>{m.name}</td>
@@ -40,6 +41,9 @@ function AdminRigModelList() {
                         </tr>
                     )
                 )
+            : <tr>
+                        <td colSpan={5}>Nothing to display</td>
+                    </tr>
             }
             <tr>
                 <td colSpan={2}>

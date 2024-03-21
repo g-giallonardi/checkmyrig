@@ -9,7 +9,7 @@ function Admin(){
             <div className={`d-flex flex-fill p-30 ${styles.adminPanel} mr-15`}>
                 <AdminMenu />
             </div>
-            <div className={`d-flex flex-fill card m-20`}>
+            <div className={`d-flex flex-fill m-20`}>
                 <Suspense fallback={'Loading...'} >
                     <Outlet/>
                 </Suspense>
