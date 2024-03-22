@@ -231,11 +231,13 @@ export async function fetchRigModels(){
 
         if (response.ok) {
             const rigModels = await response.json()
+            console.log('loader',rigModels)
             return rigModels
         } else {
             return('Oops! Something wrong happened...')
         }
     } catch (e){
+        console.error(e)
         return('Oopsy! Something wrong happened...')
     }
 }

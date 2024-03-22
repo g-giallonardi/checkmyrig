@@ -1,4 +1,5 @@
 .rigCard{
+  flex : 0 1 300px;
   overflow: hidden;
   &:hover{
     img{
@@ -43,7 +44,17 @@
   color: var(--text-color);
   border-radius: 15px;
   margin: 5px;
+  transition: 0.2s color;
+  &:hover{
+    cursor: pointer;
+    color: var(--primary);
+  }
 }
+
+.rigCardTagActived{
+  background-color: var(--secondary);
+}
+
 .likeIcon{
   position: absolute;
   right: 20px;

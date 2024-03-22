@@ -4,11 +4,13 @@ import {Suspense} from "react";
 
 function App() {
   return (
-      <div className={`d-flex flex-column appContainer`}>
+      <div className={`d-flex flex-fill justify-content-center appContainer `}>
           <Header/>
-          <Suspense fallback={'Loading...'} >
-              <Outlet/>
-          </Suspense>
+          <div className={`mainContainer`}>
+              <Suspense fallback={'Loading...'} >
+                  <Outlet/>
+              </Suspense>
+          </div>
           {/*<Footer/>*/}
       </div>
   )
