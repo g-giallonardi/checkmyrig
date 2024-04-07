@@ -1,17 +1,24 @@
 import styles from './RigCard.module.scss'
 
 function RigCard({ rig, updateFilter,searchFilter }) {
-    console.info('filter', searchFilter)
     const energyIcon = rig.model?.energy === 'electric' ? <i className="fas fa-bolt"></i> : <i className="fas fa-gas-pump"></i>
+
+    function handleLike(){
+        console.log('Like button clicked');
+    }
+
+    let thumbnailUrl = null
+    console.info(rig.image)
+
 
     return (
         <div className={`d-flex flex-column flex-fill card ${styles.rigCard} mb-20 mr-15`}>
             <div className={`d-flex flex-row`}>
                 <div>
-                    <img src={`/uploads/${rig.image}`} alt={rig.name}/>
+                    <img src={`/images/rigs/${rig.image}`} alt={rig.name}/>
                     <div className={`${styles.rigCardShadow}`}></div>
                     <div className={`${styles.likeIcon}`}>
-                        <small>{rig.like} </small> <i className={`far fa-heart`}> </i>
+                        <small>{rig.like} </small> <i className={`far fa-heart`} onClick={handleLike}> </i>
                     </div>
 
                 </div>

@@ -100,14 +100,14 @@ export async function fetchOneRig(rigId){
 
 export async function createRig(rig){
     const { image } = rig
-
+    const bodyPayload = {...rig, image:image && true}
     try {
         const response = await fetch(`${API_URL}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({...rig, image:true})
+            body: JSON.stringify(bodyPayload)
         })
 
         if (response.ok) {

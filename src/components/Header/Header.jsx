@@ -12,18 +12,24 @@ function Header() {
                 </ NavLink>
             </div>
             <ul className={styles.headerList}>
-                <NavLink to={'/admin'}>
+                <NavLink to={'/signup'}>
                     <button className="btn btn-reverse-primary mr-5">
                         <i className="fas fa-plug mr-5"></i>
-                        <span>Admin panel</span>
+                        <span>Sign up</span>
                     </button>
                 </NavLink>
-                <NavLink to={'/'}>
-                    <button className="btn btn-primary mr-5">
-                        <i className="fas fa-plus-circle mr-5"></i>
-                        <span>Log out</span>
-                    </button>
-                </NavLink>
+                {/*<NavLink to={'/admin'}>*/}
+                {/*    <button className="btn btn-reverse-primary mr-5">*/}
+                {/*        <i className="fas fa-plug mr-5"></i>*/}
+                {/*        <span>Admin panel</span>*/}
+                {/*    </button>*/}
+                {/*</NavLink>*/}
+                {/*<NavLink to={'/'}>*/}
+                {/*    <button className="btn btn-primary mr-5">*/}
+                {/*        <i className="fas fa-plus-circle mr-5"></i>*/}
+                {/*        <span>Log out</span>*/}
+                {/*    </button>*/}
+                {/*</NavLink>*/}
 
                 {/*<NavLink to={'/'}>*/}
                 {/*    <button className="btn btn-primary">*/}

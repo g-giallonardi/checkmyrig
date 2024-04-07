@@ -20,7 +20,7 @@ function App() {
     //     console.log("Loading more data...");
     //     let i = 0;
     //     while (i < 50) {
-    //         // setTimeout(buildRandomRig,2000)
+    //         setTimeout(buildRandomRig,500)
     //
     //         i += 1;
     //     }
@@ -31,9 +31,11 @@ function App() {
     return (
         <div className={`d-flex flex-fill justify-content-center appContainer `}>
             <Header/>
-            <Suspense fallback={'Loading...'} >
+            <div className={`mainContainer`}>
+                <Suspense fallback={'Loading...'} >
                     <Outlet/>
-            </Suspense>
+                </Suspense>
+            </div>
             {/*<Footer/>*/}
         </div>
     )

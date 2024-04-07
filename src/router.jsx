@@ -9,8 +9,7 @@ import partListLoader from "./loaders/partListLoader.jsx";
 import partFormLoader from "./loaders/partFormLoader.jsx";
 import rigFormLoader from "./loaders/rigFormLoader.jsx";
 import rigListLoader from "./loaders/rigListLoader.jsx";
-
-
+import SignUp from "./pages/SignUp/SignUp.jsx";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage.jsx"))
 const Admin = lazy(() => import("./pages/Admin/Admin.jsx"))
@@ -48,8 +47,10 @@ export const router = createBrowserRouter([
 				index: true,
 				loader: () => rigListLoader(true),
 				element: <Homepage />
-			},
-			{
+			},{
+				path: 'signup',
+				element: <SignUp/>
+			},{
 				path: 'admin',
 				element: <Admin />,
 				children:[
