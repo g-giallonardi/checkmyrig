@@ -1,10 +1,8 @@
 import {useLoaderData} from "react-router-dom";
-import {useState} from "react";
-import Search from "./components/Search/Search.jsx";
+import { useState} from "react";
 import styles from './Homepage.module.scss'
 import FeatureRigs from "./components/FeaturedRigs/FeatureRigs.jsx";
 import LastRigs from "./components/LastRigs/LastRigs.jsx";
-import {value} from "lodash/seq.js";
 
 function Homepage(){
     const { featuredRigs, lastRigs }  = useLoaderData()

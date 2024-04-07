@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {fetchUsers} from "../../../../apis/users.jsx";
+import {fetchUsers} from "../../../../apis/apiUsers.jsx";
 import styles from './AdminUsers.module.scss'
 
 function AdminUsers(){

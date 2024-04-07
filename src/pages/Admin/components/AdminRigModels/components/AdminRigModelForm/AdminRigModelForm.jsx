@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {createRigModel as createRigModelApi, updateRigModel as updateRigModelApi} from "../../../../../../apis/rigs.jsx";
+import {createRigModel as createRigModelApi, updateRigModel as updateRigModelApi} from "../../../../../../apis/apiRigs.jsx";
 import SearchAndSelect from "../../../../../../components/SearchAndSelect/SearchAndSelect.jsx";
 import {energyOptions, scaleOptions, typeOptions} from "../../../../../../assets/datas/rigsModelConst.js";
 import styles from './AdminRigModelForm.module.scss'

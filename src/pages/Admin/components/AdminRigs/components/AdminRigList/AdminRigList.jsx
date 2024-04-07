@@ -1,8 +1,8 @@
 import styles from "../../AdminRigs.module.scss";
 import {NavLink, useLoaderData} from "react-router-dom";
 import {useState} from "react";
-import {deleteRig} from "../../../../../../apis/rigs.jsx";
-// import {deleteRigModel} from "../../../../../../apis/rigs.jsx";
+import {deleteRig} from "../../../../../../apis/apiRigs.jsx";
+// import {deleteRigModel} from "../../../../../../apis/apiRigs.jsx";
 
 function AdminRigList() {
     const  { rigs : rigsLoaded } = useLoaderData()

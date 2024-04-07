@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {NavLink, useLoaderData} from "react-router-dom";
-import {deletePart} from "../../../../../../apis/parts.jsx";
+import {deletePart} from "../../../../../../apis/apiParts.jsx";
 import styles from "../../AdminParts.module.scss";
 
 function AdminPartList() {

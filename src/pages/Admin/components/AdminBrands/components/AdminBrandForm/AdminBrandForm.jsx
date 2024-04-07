@@ -3,7 +3,7 @@ import { useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 
 import styles from './AdminBrandForm.module.scss'
-import {createBrand as createBrandApi, updateBrand as updateBrandApi} from "../../../../../../apis/brands.jsx";
+import {createBrand as createBrandApi, updateBrand as updateBrandApi} from "../../../../../../apis/apiBrands.jsx";
 
 function AdminBrandForm({brand}) {
     const navigate = useNavigate()

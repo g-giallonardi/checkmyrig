@@ -5,10 +5,10 @@ import {
     createRig as createRigApi,
     updateRig as updateRigModelApi,
     searchRigModel
-} from "../../../../../../apis/rigs.jsx";
+} from "../../../../../../apis/apiRigs.jsx";
 import SearchAndSelect from "../../../../../../components/SearchAndSelect/SearchAndSelect.jsx";
 import styles from './AdminRigForm.module.scss'
-import {searchBrand} from "../../../../../../apis/brands.jsx";
+import {searchBrand} from "../../../../../../apis/apiBrands.jsx";
 import {randomCarName} from "../../../../../../assets/datas/randomCarName.js";
 
 //TODO: update comments

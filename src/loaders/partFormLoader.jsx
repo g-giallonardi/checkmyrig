@@ -1,5 +1,5 @@
-import {fetchBrands} from "../apis/brands.jsx";
-import {fetchOnePart} from "../apis/parts.jsx";
+import {fetchBrands} from "../apis/apiBrands.jsx";
+import {fetchOnePart} from "../apis/apiParts.jsx";
 
 async function partFormLoader(partId=null){
     let part = null

@@ -1,5 +1,5 @@
-import {fetchBrands} from "../apis/brands.jsx";
-import {fetchOneRig} from "../apis/rigs.jsx";
+import {fetchBrands} from "../apis/apiBrands.jsx";
+import {fetchOneRig} from "../apis/apiRigs.jsx";
 
 async function rigFormLoader(rigId=null){
     let rig = null

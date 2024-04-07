@@ -1,4 +1,4 @@
-import {fetchOneBrand} from "../apis/brands.jsx";
+import {fetchOneBrand} from "../apis/apiBrands.jsx";
 
 async function brandFormLoader(brandId){
 

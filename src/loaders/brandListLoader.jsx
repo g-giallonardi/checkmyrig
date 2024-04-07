@@ -1,4 +1,4 @@
-import {fetchBrands} from "../apis/brands.jsx";
+import {fetchBrands} from "../apis/apiBrands.jsx";
 
 async function brandListLoader(){
 

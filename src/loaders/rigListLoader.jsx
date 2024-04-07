@@ -1,4 +1,4 @@
-import { fetchRigs} from "../apis/rigs.jsx";
+import { fetchRigs} from "../apis/apiRigs.jsx";
 
 async function rigListLoader(full = false){
 
@@ -6,7 +6,7 @@ async function rigListLoader(full = false){
 
     if(full) {
         result = {...result, featuredRigs: await fetchRigs({sort: '-like', limit: 8})}
-        result = {...result, lastRigs: await fetchRigs({sort: '-created_at', limit: 10})}
+        result = {...result, lastRigs: await fetchRigs({sort: '-created_at', limit: 16})}
     }
     else{
         result ={ ...result, rigs: await fetchRigs() }

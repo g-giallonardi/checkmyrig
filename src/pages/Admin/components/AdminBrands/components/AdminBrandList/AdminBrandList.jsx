@@ -1,7 +1,7 @@
 import styles from "../../AdminBrands.module.scss";
 import {NavLink, useLoaderData} from "react-router-dom";
 import {useState} from "react";
-import {deleteBrand} from "../../../../../../apis/brands.jsx";
+import {deleteBrand} from "../../../../../../apis/apiBrands.jsx";
 
 function AdminBrandList() {
     const [brands, setBrands ] = useState( useLoaderData())

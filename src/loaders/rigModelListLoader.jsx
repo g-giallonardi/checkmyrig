@@ -1,4 +1,4 @@
-import { fetchRigModels} from "../apis/rigs.jsx";
+import { fetchRigModels} from "../apis/apiRigs.jsx";
 
 async function rigModelListLoader(){
 

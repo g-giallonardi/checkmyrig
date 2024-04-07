@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {createPart as createPartApi, updatePart as updatePartApi} from "../../../../../../apis/parts.jsx";
+import {createPart as createPartApi, updatePart as updatePartApi} from "../../../../../../apis/apiParts.jsx";
 import SearchAndSelect from "../../../../../../components/SearchAndSelect/SearchAndSelect.jsx";
 import styles from './AdminPartForm.module.scss'
 import SearchAndCheck from "../../../../../../components/SearchAndCheck/SearchAndCheck.jsx";

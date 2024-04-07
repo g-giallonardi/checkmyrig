@@ -1,10 +1,10 @@
-// import '@testing-library/jsdom';
+import '@testing-library/jest-dom';
 import React from 'react'
 import { render, screen } from '@testing-library/react';
-import Header from "./Header.jsx";
+import Rig from "./Rig.jsx";
 import {MemoryRouter} from "react-router-dom";
 
-test('should render a menu', () => {
-    render(<MemoryRouter><Header/></MemoryRouter>);
+it.only('should render a menu', () => {
+    render(<MemoryRouter><Rig/></MemoryRouter>);
     expect(screen.getByText('Log in')).toBeInTheDocument();
 });

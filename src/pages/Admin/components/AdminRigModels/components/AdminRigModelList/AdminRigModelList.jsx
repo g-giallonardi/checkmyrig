@@ -1,7 +1,7 @@
 import styles from "../../AdminRigModels.module.scss";
 import {NavLink, useLoaderData} from "react-router-dom";
 import {useState} from "react";
-import {deleteRigModel} from "../../../../../../apis/rigs.jsx";
+import {deleteRigModel} from "../../../../../../apis/apiRigs.jsx";
 
 
 function AdminRigModelList() {

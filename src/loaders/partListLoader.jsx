@@ -1,4 +1,4 @@
-import { fetchParts} from "../apis/parts.jsx";
+import { fetchParts} from "../apis/apiParts.jsx";
 
 async function partListLoader(){
 
