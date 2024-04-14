@@ -1,10 +1,7 @@
-import rigFormLoader from "../loaders/rigFormLoader.jsx";
-
 const API_URL = '/api/rigs'
 
 function formatFilter(filterObj){
     const filterArr = Array.isArray(filterObj) ? filterObj : [filterObj]
-    console.log(Object.keys(filterObj))
     const filter = filterArr.map(
         f => {
             const keys = Object.keys(f)
@@ -32,7 +29,6 @@ async function pushRigImage(image, rig){
             body: formData
         })
         if (response.ok) {
-            console.log({...rig, image:uniqueFileName})
             const response = await fetch(`${API_URL}/${rig._id}`, {
                 method: 'PUT',
                 headers: {
@@ -58,7 +54,7 @@ async function pushRigImage(image, rig){
 }
 
 export async function fetchRigs(searchParam = {} ){
-    try {
+    // try {
         let URLsearchParam = null
         URLsearchParam = new URLSearchParams()
         if (Object.keys(searchParam).length > 0) {
@@ -78,9 +74,9 @@ export async function fetchRigs(searchParam = {} ){
         } else {
             return('Oops! Something wrong happened...')
         }
-    } catch (e){
-        return('Oops! Something wrong happened...')
-    }
+    // } catch (e){
+    //     return('Oops! Something wrong happened...')
+    // }
 }
 
 export async function fetchOneRig(rigId){
@@ -231,7 +227,6 @@ export async function fetchRigModels(){
 
         if (response.ok) {
             const rigModels = await response.json()
-            console.log('loader',rigModels)
             return rigModels
         } else {
             return('Oops! Something wrong happened...')

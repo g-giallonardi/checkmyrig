@@ -24,8 +24,6 @@ function SearchAndSelect({ options, setOptions, searchItemFn, externalFilter='' 
             const newOpt = {_id:0, name: inputValue}
             const fetchData = async () => {
                 const formattedFilter = { name: inputValue, filter: externalFilter[0]?.name ? externalFilter[0].name : ''}
-                console.log(formattedFilter)
-                console.log('formattedFilter', formattedFilter)
                 const data = await searchItemFn(formattedFilter)
 
                 if(defaultOption) setOptions([defaultOption, ...data,newOpt])

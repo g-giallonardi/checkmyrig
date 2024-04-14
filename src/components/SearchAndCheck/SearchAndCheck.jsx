@@ -25,15 +25,11 @@ function SearchAndCheck({ options, setOptions , searchItemFn, externalFilter={} 
                 let finalOptions = data;
 
                 if (defaultOption) {
-                    console.log('defaultOption',defaultOption)
                     finalOptions = [defaultOption, ...data]
                 }
 
                 if (inputValue) {
-                    console.log('input',inputValue)
-                    console.log('final', finalOptions)
                     finalOptions = [...finalOptions, newOpt]
-                    console.log('final2', finalOptions)
                 }
 
                 setOptions(finalOptions);

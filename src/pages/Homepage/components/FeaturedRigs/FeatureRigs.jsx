@@ -2,7 +2,6 @@ import RigCard from "../RigCard/RigCard.jsx";
 import Search from "../Search/Search.jsx";
 
 function FeatureRigs({ rigs, updateFilter,searchFilter }){
-    console.log(rigs[0].model.scale,searchFilter.scale,rigs[0].model.scale === searchFilter.scale)
 
     return (
         <div >

@@ -6,7 +6,6 @@ import {deleteRigModel} from "../../../../../../apis/apiRigs.jsx";
 
 function AdminRigModelList() {
     const [models, setModels ] = useState( useLoaderData())
-    console.log(models)
     function handleDelete(id) {
         deleteRigModel(id)
         setModels(models.filter((m) => m._id !== id))

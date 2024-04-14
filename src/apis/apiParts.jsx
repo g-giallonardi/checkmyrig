@@ -134,7 +134,6 @@ export async function deletePart(partId){
 
         if (response.ok) {
             const part = await response.json()
-            console.info(part)
             return part
         } else {
             return('Oopsy! Something wrong happened...')

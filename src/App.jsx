@@ -1,12 +1,14 @@
 import {Outlet} from "react-router-dom";
 import Header from "./components/Header/Header.jsx";
-import {Suspense, useEffect, useState} from "react";
+import {createContext, Suspense, useState} from "react";
 import {randomCarName} from "./assets/datas/randomCarName.js";
 import {randomRigModel} from "./assets/datas/randomRigModel.js";
 import {createRig} from "./apis/apiRigs.jsx";
+import Login from "./pages/Login/Login.jsx";
+import {useUser} from "./hooks/useUser.jsx";
+import { UserAuth} from "./appContext.js";
 
 function App() {
-
     // useEffect( () =>{
     //
     //     function buildRandomRig(){
@@ -28,16 +30,20 @@ function App() {
     //     console.log("More data loaded!");
     // },[])
 
+    const initState = {authenticated:false, user:{}}
+    const [appAuth, setAppAuth] = useState(initState)
+
     return (
-        <div className={`d-flex flex-fill justify-content-center appContainer `}>
-            <Header/>
-            <div className={`mainContainer`}>
-                <Suspense fallback={'Loading...'} >
-                    <Outlet/>
-                </Suspense>
+        <UserAuth.Provider value={ { appAuth, setAppAuth } } >
+            <div className={`d-flex flex-fill justify-content-center appContainer `}>
+                <Header />
+                <div className={`d-flex flex-fill justify-content-center mainContainer`}>
+                    <Suspense fallback={'Loading...'}>
+                        <Outlet context={ {appAuth, setAppAuth} }/>
+                    </Suspense>
+                </div>
             </div>
-            {/*<Footer/>*/}
-        </div>
+        </UserAuth.Provider>
     )
 }
 

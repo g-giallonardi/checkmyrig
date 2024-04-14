@@ -10,6 +10,7 @@ import partFormLoader from "./loaders/partFormLoader.jsx";
 import rigFormLoader from "./loaders/rigFormLoader.jsx";
 import rigListLoader from "./loaders/rigListLoader.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
+import Login from "./pages/Login/Login.jsx";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage.jsx"))
 const Admin = lazy(() => import("./pages/Admin/Admin.jsx"))
@@ -50,6 +51,9 @@ export const router = createBrowserRouter([
 			},{
 				path: 'signup',
 				element: <SignUp/>
+			},{
+				path: 'login',
+				element: <Login/>
 			},{
 				path: 'admin',
 				element: <Admin />,

@@ -8,7 +8,7 @@ function Homepage(){
     const { featuredRigs, lastRigs }  = useLoaderData()
     const [ searchFilter, setSearchFilter ] =  useState({scale:'', type:'', energy:''})
 
-    console.log(searchFilter)
+    console.log(featuredRigs)
     function updateFilter(type, value){
         const currentTypeValue = searchFilter[type]
         if(currentTypeValue === value) setSearchFilter(prevState => ({...prevState, [type]: '' }))

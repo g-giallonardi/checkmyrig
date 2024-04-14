@@ -53,7 +53,6 @@ function AdminRigForm({ rig }) {
      * @return {Promise<void>} - A promise that resolves when the rig model is updated successfully.
      */
     async function updateRig(values){
-        console.log('UPD',{...values,id:rig._id})
         const response = await updateRigModelApi({...values,id:rig._id})
         typeof response === 'object' ? navigate(-1) : setError('generic',{type:'generic', message:response.toString()})    }
 

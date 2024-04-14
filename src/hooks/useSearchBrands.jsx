@@ -21,7 +21,6 @@
 //     )
 //     useEffect(
 //         () => {
-//             console.log('ici')
 //             setIsLoading(true)
 //             fetch(`/api/brands/search`, {
 //                     method: 'POST',

@@ -7,10 +7,6 @@ function RigCard({ rig, updateFilter,searchFilter }) {
         console.log('Like button clicked');
     }
 
-    let thumbnailUrl = null
-    console.info(rig.image)
-
-
     return (
         <div className={`d-flex flex-column flex-fill card ${styles.rigCard} mb-20 mr-15`}>
             <div className={`d-flex flex-row`}>

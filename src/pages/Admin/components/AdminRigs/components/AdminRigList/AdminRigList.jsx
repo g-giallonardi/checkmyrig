@@ -7,7 +7,6 @@ import {deleteRig} from "../../../../../../apis/apiRigs.jsx";
 function AdminRigList() {
     const  { rigs : rigsLoaded } = useLoaderData()
     const [rigs, setRigs ] = useState( rigsLoaded )
-    console.log(rigs)
     function handleDelete(id) {
         deleteRig(id)
         setRigs(rigs.filter((r) => r._id !== id))
