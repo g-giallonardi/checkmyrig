@@ -1,4 +1,3 @@
-import styles from "./Header.module.scss"
 import logo from "../../assets/images/logo.png"
 import {NavLink, useNavigate} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
@@ -20,19 +19,19 @@ function Header() {
     }
 
     return (
-        <header className={`${styles.header} d-flex flex-row align-items-center`}>
-
-            <div className="flex-fill">
+        <header className={`sticky top-0 h-20 flex flex-row justify-between px-3 bg-background shadow-md z-10`}>
+            <div className="text-primary text-xl my-auto">
                 <NavLink to={'/'} >
-                    <img src={logo} alt="logo cookchef"/>
+                    {/*<img src={logo} alt="logo cookchef"/>*/}
+                    CHECK MY RIG
                 </ NavLink>
             </div>
-            <ul className={styles.headerList}>
+            <div className='my-auto'>
                 {!appAuth.authenticated &&
-                    <NavLink to={'/signup'}>
-                        <button className="btn btn-reverse-primary mr-5">
-                            <i className="fas fa-plug mr-5"></i>
-                            <span>Sign up</span>
+                    <NavLink to={'/login'}>
+                        <button className="text-sm bg-primary text-primary-foreground rounded px-3 py-1 hover:bg-primary/90">
+                            <i className="fas fa-plug "></i>
+                            <span>Log in</span>
                         </button>
                     </NavLink>
                 }
@@ -51,7 +50,7 @@ function Header() {
                     </NavLink>
                 }
 
-            </ul>
+            </div>
         </header>
     )
 }

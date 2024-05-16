@@ -35,9 +35,9 @@ function App() {
 
     return (
         <UserAuth.Provider value={ { appAuth, setAppAuth } } >
-            <div className={`d-flex flex-fill justify-content-center appContainer `}>
+            <div className={`flex flex-col bg-background`}>
                 <Header />
-                <div className={`d-flex flex-fill justify-content-center mainContainer`}>
+                <div className='max-w-6xl mx-auto'>
                     <Suspense fallback={'Loading...'}>
                         <Outlet context={ {appAuth, setAppAuth} }/>
                     </Suspense>

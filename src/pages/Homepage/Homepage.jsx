@@ -1,8 +1,6 @@
 import {useLoaderData} from "react-router-dom";
 import { useState} from "react";
-import styles from './Homepage.module.scss'
-import FeatureRigs from "./components/FeaturedRigs/FeatureRigs.jsx";
-import LastRigs from "./components/LastRigs/LastRigs.jsx";
+import GalleryRigs from "@/pages/Homepage/components/GalleryRigs/GalleryRigs.jsx";
 
 function Homepage(){
     const { featuredRigs, lastRigs }  = useLoaderData()
@@ -16,12 +14,14 @@ function Homepage(){
     }
 
     return (
-        <div className={` d-flex flex-column ${styles.container}`}>
-            <div className={`p-20 underlined underlinedActive`}>
-                <FeatureRigs rigs={featuredRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
+        <div className={` flex flex-col p-20 gap-4`}>
+            <div>
+                <h2 className='mb-5 font-bold text-lg'><i className="fas fa-star"></i> Featured rigs</h2>
+                <GalleryRigs rigs={featuredRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
             </div>
-            <div className={`p-20 underlined underlinedActive`}>
-                <LastRigs rigs={lastRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
+            <div>
+                <h2 className='mb-5 font-bold text-lg'>Last rigs</h2>
+                <GalleryRigs rigs={lastRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
             </div>
         </div>
     )

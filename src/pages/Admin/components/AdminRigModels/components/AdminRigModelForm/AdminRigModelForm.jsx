@@ -5,6 +5,9 @@ import {createRigModel as createRigModelApi, updateRigModel as updateRigModelApi
 import SearchAndSelect from "../../../../../../components/SearchAndSelect/SearchAndSelect.jsx";
 import {energyOptions, scaleOptions, typeOptions} from "../../../../../../assets/datas/rigsModelConst.js";
 import styles from './AdminRigModelForm.module.scss'
+import * as Yup from "yup";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {searchBrand} from "../../../../../../apis/apiBrands.jsx";
 
 /**
  * Renders a form for creating or updating a rig model.
@@ -19,6 +22,20 @@ function AdminRigModelForm({ model }) {
     const selectedBrand = model?.brand ? {_id:model.brand._id,name:model.brand.name, selected:true} : ''
     const [brandOpt, setBrandOpt] = useState( selectedBrand)
     const navigate = useNavigate()
+
+    const rigModelSchema = Yup.object({
+        name: Yup.string()
+            .required("Required field"),
+        brand: Yup.string()
+            .required("Required field"),
+        scale: Yup.string()
+            .required("Required field"),
+        type: Yup.string()
+            .required("Required field"),
+        energy: Yup.string()
+            .required("Required field"),
+    });
+
     const defaultValues = {
         name : model?.name ? model.name : '',
         brand : model?.brand ? model.brand._id : '',
@@ -26,7 +43,15 @@ function AdminRigModelForm({ model }) {
         type : model?.type ? model.type : '',
         energy : model?.energy ? model.energy : ''
     }
-    const { formState:{errors},setError, register,handleSubmit } = useForm({defaultValues})
+    const {
+        formState:{errors},
+        setError,
+        register,
+        handleSubmit
+    } = useForm({
+        resolver: yupResolver(rigModelSchema),
+        defaultValues
+    })
 
     /**
      * Updates the rig model with the given values.
@@ -55,15 +80,15 @@ function AdminRigModelForm({ model }) {
     * @return {void}
     */
    function submitForm(values){
-        const choosenBrand = brandOpt.filter( o => o.selected)
-        const updatedModel = {...values, brand:choosenBrand[0]}
+       console.info('ici?')
+       const choosenBrand = brandOpt.filter( o => o.selected)
+       const updatedModel = {...values, brand:choosenBrand[0]}
 
-        if (model) {
-             updateRigModel(updatedModel);
-        } else {
-             createRigModel(updatedModel);
-        }
-
+       if (model) {
+           updateRigModel(updatedModel);
+       } else {
+           createRigModel(updatedModel);
+       }
    }
    /**
     * Updates the input value for searching brands.
@@ -83,7 +108,7 @@ function AdminRigModelForm({ model }) {
                 <div className={`d-flex flex-column `}>
                     <label htmlFor="brand">Brand</label>
                     <span className={`mb-20`}>
-                        <SearchAndSelect options={brandOpt} setOptions={setBrandOpt} />
+                        <SearchAndSelect options={brandOpt} setOptions={setBrandOpt} searchItemFn={searchBrand} />
                     </span>
                     <div className={'d-flex flex-row'}>
                         Search:
