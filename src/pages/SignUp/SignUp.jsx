@@ -50,45 +50,53 @@ function SignUp(){
     }
 
     return (
-        <div className={`d-flex flex-row  ${styles.signUpCard} justify-content-center align-items-center`}>
-            <div className={`d-flex flex-column ${styles.signUpForm} `}>
-                <div className={`d-flex flex-column`}>
-                    <h2>Sign Up</h2>
+        <div className="flex flex-row justify-items-center align-items-center
+                    rounded-lg border border-accent bg-muted my-8
+                    bg-[url('/src/assets/images/signup.jpg')]
+                    bg-cover
+                    ">
+            <div className='flex flex-col align-items-center backdrop-blur bg-muted/40 rounded-lg border border-accent m-10  p-5 '>
+                <div className={`flex flex-col`}>
+                    <span className='font-bold text-lg'> Sign Up</span>
                 </div>
-                <div className={`d-flex flex-column`}>
+                <div className='flex flex-col mx-4 h-full'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {globalError && <p><small className={`error mb-20`}>{globalError}</small></p>}
-                        <small className={`mb-20`}>Already have an account?  <NavLink to={`/login`}>Click here</NavLink></small>
-                        <div className={`d-flex flex-column`}>
-                            <div className={`mb-20 d-flex flex-column`}>
+                        <span className='font-light text-sm'>
+                            Already have an account?
+                            <NavLink to={`/login`}>
+                                    <span className='text-primary'> ↗ Click here</span>
+                            </NavLink>
+                        </span>
+
+                        <div className={`flex flex-col mt-4`}>
+                            <div className={`mb-5 flex flex-col`}>
                                 <label htmlFor="username">Username</label>
-                                <input type="text" id='username' {...register("username")}/>
+                                <input type="text" id=' username' {...register("username")}/>
                                 {errors?.username && <small className={`error`}>{errors.username.message}</small>}
                             </div>
-                            <div className={`mb-20 d-flex flex-column`}>
+                            <div className={`mb-5 flex flex-col`}>
                                 <label htmlFor="email">E-mail</label>
-                                <input type="text" id='email' {...register("email")}/>
+                                <input type="text" id=' email' {...register("email")}/>
                                 {errors?.email && <small className={`error`}>{errors.email.message}</small>}
                             </div>
-                            <div className={`mb-20 d-flex flex-column`}>
+                            <div className={`mb-5 flex flex-col`}>
                                 <label htmlFor="password">Password</label>
-                                <input type="password" id='password' {...register("password")}/>
+                                <input type="password" id=' password' {...register("password")}/>
                                 {errors?.password && <small className={`error`}>{errors.password.message}</small>}
                             </div>
-                            <div className={`mb-20 d-flex flex-column`}>
+                            <div className={`mb-5 flex flex-col`}>
                                 <label htmlFor="passwordConfirmation">Confirm your password</label>
-                                <input type="password" id='passwordConfirmation' {...register("passwordConfirmation")}/>
-                                {errors?.passwordConfirmation && <small className={`error`}>{errors.passwordConfirmation.message}</small>}
+                                <input type="password" id=' passwordConfirmation' {...register("passwordConfirmation")}/>
+                                {errors?.passwordConfirmation &&
+                                    <small className={`error`}>{errors.passwordConfirmation.message}</small>}
                             </div>
-                            <div className={`mb-20 d-flex flex-column`}>
-                                <button className={`btn btn-reverse-primary `}>Sign Up</button>
+                            <div className={`mb-5 flex flex-col`}>
+                                <button className={`rounded-md border-accent border-primary-foreground bg-primary text-primary-foreground mx-3`}>Sign Up</button>
                             </div>
                         </div>
                     </form>
                 </div>
-            </div>
-            <div className={`d-flex ${styles.signUpImage}`}>
-                <img src={signUpImage} alt="Logout"/>
             </div>
         </div>
     );

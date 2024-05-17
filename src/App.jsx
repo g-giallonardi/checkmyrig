@@ -7,6 +7,7 @@ import {createRig} from "./apis/apiRigs.jsx";
 import Login from "./pages/Login/Login.jsx";
 import {useUser} from "./hooks/useUser.jsx";
 import { UserAuth} from "./appContext.js";
+import Rig from "@/pages/Rig/Rig.jsx";
 
 function App() {
     // useEffect( () =>{
@@ -35,9 +36,9 @@ function App() {
 
     return (
         <UserAuth.Provider value={ { appAuth, setAppAuth } } >
-            <div className={`flex flex-col bg-background`}>
-                <Header />
-                <div className='max-w-6xl mx-auto'>
+            <Header />
+            <div className={`flex flex-col bg-background align-items-center`}>
+                <div className='flex flex-col lg:max-w-5xl md:max-w-4xl sm:max-w-md max-w-md mx-8' >
                     <Suspense fallback={'Loading...'}>
                         <Outlet context={ {appAuth, setAppAuth} }/>
                     </Suspense>

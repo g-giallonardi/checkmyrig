@@ -19,8 +19,8 @@ function Header() {
     }
 
     return (
-        <header className={`sticky top-0 h-20 flex flex-row justify-between px-3 bg-background shadow-md z-10`}>
-            <div className="text-primary text-xl my-auto">
+        <header className={`sticky top-0 h-20 flex flex-row justify-between px-3 bg-background/90 shadow-md z-90 backdrop-blur`}>
+            <div className="text-primary text-xl font-bold my-auto">
                 <NavLink to={'/'} >
                     {/*<img src={logo} alt="logo cookchef"/>*/}
                     CHECK MY RIG

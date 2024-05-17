@@ -14,15 +14,12 @@ function Homepage(){
     }
 
     return (
-        <div className={` flex flex-col p-20 gap-4`}>
-            <div>
-                <h2 className='mb-5 font-bold text-lg'><i className="fas fa-star"></i> Featured rigs</h2>
+        <div className={` flex flex-col gap-4 py-3 mx-auto align-middle`}>
+                <h2 className='mb-5 font-bold text-lg'>Featured rigs</h2>
                 <GalleryRigs rigs={featuredRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
-            </div>
-            <div>
-                <h2 className='mb-5 font-bold text-lg'>Last rigs</h2>
-                <GalleryRigs rigs={lastRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>
-            </div>
+
+                {/*<h2 className='mb-5 font-bold text-lg'>Last rigs</h2>*/}
+                {/*<GalleryRigs rigs={lastRigs} updateFilter={updateFilter} searchFilter={searchFilter}/>*/}
         </div>
     )
 }

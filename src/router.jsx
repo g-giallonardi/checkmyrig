@@ -12,7 +12,9 @@ import rigListLoader from "./loaders/rigListLoader.jsx";
 import SignUp from "./pages/SignUp/SignUp.jsx";
 import Login from "./pages/Login/Login.jsx";
 
+
 const Homepage = lazy(() => import("./pages/Homepage/Homepage.jsx"))
+const Rig = lazy(() => import("@/pages/Rig/Rig.jsx"));
 const Admin = lazy(() => import("./pages/Admin/Admin.jsx"))
 const AdminUsers = lazy(() => import("./pages/Admin/components/AdminUsers/AdminUsers.jsx"))
 
@@ -37,6 +39,7 @@ const AdminRigCreate = lazy(() => import("./pages/Admin/components/AdminRigs/com
 const AdminRigEdit = lazy(() => import("./pages/Admin/components/AdminRigs/components/AdminRigEdit/AdminRigEdit.jsx"))
 
 
+
 //TODO : reorder routes
 
 export const router = createBrowserRouter([
@@ -48,6 +51,9 @@ export const router = createBrowserRouter([
 				index: true,
 				loader: () => rigListLoader(true),
 				element: <Homepage />
+			},{
+				path: 'rig/:rigId',
+				element: <Rig/>
 			},{
 				path: 'signup',
 				element: <SignUp/>
