@@ -18,12 +18,11 @@ function RigCard({ rig, updateFilter,searchFilter }) {
     }
 
     return (
-            <div className={`flex flex-col h-full relative  rounded-lg overflow-hidden 
-                border border-accent aspect-square
+            <div className={`flex flex-col relative  rounded-lg overflow-hidden 
+                border border-accent  min-w-48 min-h-48 aspect-square
                 lg:w-1/5 md:w-1/3`}
-                 onMouseEnter={handleHoverOn}
-                 onMouseLeave={handleHoverOff}>
-                <img className='h-full' src={`/images/rigs/${rig.image}`} alt={rig.name}/>
+            >
+                <img className='aspect-square h-full' src={`/images/rigs/${rig.image}`} alt={rig.name}/>
 
                 <div className='absolute end-4 top-3 bg-muted/50 rounded-md px-1 backdrop-blur text-md md:text-sm lg:text-x'>
                     {rig.like} <i className={`far fa-heart`} onClick={handleLike}/>

@@ -37,7 +37,7 @@ function App() {
     return (
         <UserAuth.Provider value={ { appAuth, setAppAuth } } >
             <Header />
-            <div className={`flex flex-col bg-background align-items-center`}>
+            <div className={`flex flex-col bg-background align-items-center min-h-screen h-full`}>
                 <div className='flex flex-col lg:max-w-5xl md:max-w-4xl sm:max-w-md max-w-md mx-8' >
                     <Suspense fallback={'Loading...'}>
                         <Outlet context={ {appAuth, setAppAuth} }/>

@@ -10,9 +10,9 @@ function Rig() {
     ]
     return (
         <div className='flex flex-col mx-auto justify-items-center w-full  '>
-            <div className='flex lg:flex-row flex-col basis-2/3 h-24 my-5 gap-2 rounded-md'>
-                <img src={mockImg} alt=""/>
-                <div className='flex flex-col bg-muted border w-full border-accent rounded-sm p-5'>
+            <div className='flex lg:flex-row flex-col  my-5 gap-2 rounded-md '>
+                <img className='basis-2/3 aspect-square' src={mockImg} alt=""/>
+                <div className='flex flex-col  basis-1/3 bg-muted border w-full border-accent rounded-sm p-5'>
                     <div className='flex text-lg font-bold '>Viper</div>
                     <div className='flex text-sm font-light '>KayZerr893's rig</div>
                     <div className='text-justify mt-3'>
