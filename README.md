@@ -25,8 +25,7 @@ explore various RC car projects, modifications, and customizations.
 
 ### Backend
 
-- **Express.JS:** A minimal and flexible Node.js web application framework providing a robust set of features for building APIs and web applications.
-
+- **Express.JS:** [Splitted project](https://github.com/g-giallonardi/checkmyrig-back) 
 ### Contact
 
 If you have any questions or suggestions, please feel free to reach out.
